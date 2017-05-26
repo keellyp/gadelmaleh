@@ -15,9 +15,5 @@ class Artist
     {
         $query = $this->db->query('SELECT * FROM cinema');
         $artist = $query->fetchAll();
-
-        echo '<pre>';
-        print_r($artist);
-        echo '</pre>';
     }
 }

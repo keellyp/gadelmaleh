@@ -1,0 +1,61 @@
+.header
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10vh;
+
+    .header-left, .header-right
+    {
+        width: 50%;
+        height: 80vh;
+    }
+    .header-left
+    {
+        background-image: url(../img/gad_bg.png);
+        background-size: cover;
+        background-position: 50% 0;
+    }
+
+    .header-right
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .right-container
+        {
+            width: 60%;
+
+            .right-logo
+            {
+                margin: 4em 0;
+            }
+            .right-adj
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 2em 0;
+                width: 50%;
+
+                div
+                {
+                    color: $second-color;
+                    font-style: italic;
+                    font-size: 10px;
+                }
+            }
+            h3
+            {
+                margin: 1em 0;
+            }
+        }
+    }
+}
+section
+{
+    background-color: $section-color;
+    width: 100%;
+    height: 20vh;
+}

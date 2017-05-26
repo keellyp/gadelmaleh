@@ -2,7 +2,8 @@
 
 // Require dependendies
 $loader = require_once __DIR__.'/../vendor/autoload.php';
-$loader->addPsr4('Site\\', __DIR__.'/../src/');
+$loader
+    ->addPsr4('Site\\', __DIR__.'/../src/');
 
 // Init Silex
 $app = new Silex\Application();
@@ -28,11 +29,32 @@ $app
 
 $app['db']->setFetchMode(PDO::FETCH_OBJ);
 
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+$app->register(new Silex\Provider\LocaleServiceProvider());
+
 // Create routes
 $app->get('/', function() use ($app)
 {
-
     $data = array();
+
+    // Create builder
+    $formBuilder = $app['form.factory']->createBuilder();
+
+    // Set method and action
+    $formBuilder->setMethod('get');
+    $formBuilder->setAction($app['url_generator']->generate('home'));
+
+    // Add input
+    $formBuilder->add('name', Symfony\Component\Form\Extension\Core\Type\TextType::class);
+    $formBuilder->add('submit', Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
+
+    // Create form
+    $form = $formBuilder->getForm();
+
+    // Send the form to the view
+    $data['contact_form'] = $form->createView();
 
     $artistModel = new \Site\Models\Artist($app['db']);
     $data['artist'] = $artistModel->getAll();

@@ -1,0 +1,22 @@
+{{ include('/partials/header.twig') }}
+
+<div class="header">
+    <div class="header-left"></div>
+    <div class="header-right">
+        <div class="right-container">
+            <div class="right-logo">
+                <h1><img src="{{ global.request.basepath }}/dist/img/logo.png" alt="logo gad elmaleh"></h1>
+            </div>
+            <div class="right-adj">
+                <div>#humoriste</div>
+                <div>#acteur</div>
+                <div>#réalisateur</div>
+            </div>
+            <h3>Alors que Gad Elmaleh est sans doute le comédien le plus connu et le plus aimé d'Europe, il s'est engagé dans le tout dernier chapitre de sa carrière: se transmettre au public américain.</h3>
+        </div>
+    </div>
+</div>
+<section>
+    {{ form(contact_form) }}
+</section>
+{{ include('/partials/footer.twig') }}

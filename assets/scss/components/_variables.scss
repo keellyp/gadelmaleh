@@ -1,23 +1,14 @@
-$main-color : #59ffa5;
-$second-color : #ff2171;
+// COLORS
 
-@font-face
-{
-    font-family: 'PlayfairDisplay';
-    font-weight: 400;
-    src: url(../fonts/PlayfairDisplay-Regular.ttf);
+$main-color : #3CD2F9; // blue
+$second-color : #8F8F8F; // light grey
+$third-color : #1C1C1B; // dark grey
+$dark-color : #000000; // black
+$bg-color : #FFFFFF; // white
+$section-color : #F1F1F1; // lighter grey
 
-}
-@font-face
-{
-    font-family: 'PlayfairDisplay';
-    font-weight: 600;
-    src: url(../fonts/PlayfairDisplay-Bold.ttf);
-}
-@font-face
-{
-    font-family: 'PlayfairDisplay';
-    font-weight: 800;
-    src: url(../fonts/PlayfairDisplay-Black.ttf);
-
-}
+// MEDIA QUERIES
+$mobile: "(max-width: 768px)";
+$tablet: "(min-width: 769px) and (max-width: 1024px)";
+$desktop: "(min-width: 1025px) and (max-width: 1440px)";
+$large: "(min-width: 1440px)";
