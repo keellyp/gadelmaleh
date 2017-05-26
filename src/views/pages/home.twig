@@ -15,8 +15,33 @@
             <h3>Alors que Gad Elmaleh est sans doute le comédien le plus connu et le plus aimé d'Europe, il s'est engagé dans le tout dernier chapitre de sa carrière: se transmettre au public américain.</h3>
         </div>
     </div>
+    <section>
+        <form class="form-year" action="#" method="get">
+            <div class="select-style">
+                <select name="formYear" required>
+                    <option disabled selected>Choose a year</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                </select>
+            </div>
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
 </div>
 <section>
-    {{ form(contact_form) }}
+    <article>
+        <div class="title">
+            <h3>Derniers films</h3>
+            <p>TOUT VOIR</p>
+        </div>
+        <div class="img-box">
+            <div>
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+        </div>
+    </article>
 </section>
+
 {{ include('/partials/footer.twig') }}

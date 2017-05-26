@@ -39,29 +39,18 @@ $app->get('/', function() use ($app)
 {
     $data = array();
 
-    // Create builder
-    $formBuilder = $app['form.factory']->createBuilder();
-
-    // Set method and action
-    $formBuilder->setMethod('get');
-    $formBuilder->setAction($app['url_generator']->generate('home'));
-
-    // Add input
-    $formBuilder->add('name', Symfony\Component\Form\Extension\Core\Type\TextType::class);
-    $formBuilder->add('submit', Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
-
-    // Create form
-    $form = $formBuilder->getForm();
-
-    // Send the form to the view
-    $data['contact_form'] = $form->createView();
-
     $artistModel = new \Site\Models\Artist($app['db']);
     $data['artist'] = $artistModel->getAll();
 
     return $app['twig']->render('/pages/home.twig', $data);
 })
 ->bind('home');
+
+$app->get('/date', function() use ($app)
+{
+    return $app['twig']->render('/pages/date.twig');
+})
+->bind('date');
 
 
 // Run Silex

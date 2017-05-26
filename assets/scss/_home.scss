@@ -2,7 +2,8 @@
 {
     display: flex;
     flex-direction: row;
-    margin-top: 5vh;
+    margin-top: 10vh;
+    position: relative;
 
     .header-left, .header-right
     {
@@ -14,8 +15,6 @@
         background-image: url(../img/gad_bg.png);
         background-size: cover;
         background-position: 50% 0;
-
-
         @media #{$mobile} { display: none; }
     }
 
@@ -25,7 +24,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-
         @media #{$mobile}
         {
             width: 100%;
@@ -36,22 +34,18 @@
 
         .right-container
         {
-            width: 60%;
-
+            width: 70%;
             @media #{$mobile} { width: 80%; }
 
-            .right-logo
-            {
-                margin: 4em 0;
-            }
             .right-adj
             {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                margin: 2em 0;
+                margin: 1em 0;
                 width: 50%;
                 @media #{$mobile} { width: 40%; }
+
                 div
                 {
                     color: $second-color;
@@ -60,16 +54,56 @@
                     @media #{$large} { font-size: 22px; }
                 }
             }
-            h3
-            {
-                margin: 1em 0;
-            }
         }
     }
 }
 section
 {
-    background-color: $section-color;
-    width: 100%;
-    height: 20vh;
+    // width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+
+    .form-year
+    {
+        width: 100%;
+        font-weight: 600;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+
+        .select-style {
+            height: 35px;
+            border: 2px solid $main-color;
+            border-radius: 20px;
+            width: 15%;
+            overflow: hidden;
+            background: white url("../img/down-arrow.svg") no-repeat 90% 50%;
+            background-size: 10px;
+            color: $main-color;
+        }
+
+        .select-style select {
+            width: 100%;
+            padding: 0 10px;
+            -webkit-appearance: none;
+        }
+
+        .select-style select:focus { outline: none; }
+
+        input[type=submit]
+        {
+            background-color: $main-color;
+            width: 10%;
+            height: 35px;
+            color: white;
+            border-radius: 20px;
+            margin: 0 20px;
+
+        }
+    }
 }
