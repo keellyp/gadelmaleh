@@ -43,23 +43,28 @@ footer
 
         ul
         {
-            flex-grow: 1;
+            width: calc(100% / 4);
+
+            li { text-align: center; }
 
             li:first-child
             {
                 font-size: 44px;
                 font-weight: 600;
                 padding: 10px 0;
+
+                @media #{$mobile}
+                {
+                    font-size: 34px;
+                    padding: 0;
+                }
             }
             li:last-child
             {
                 font-size: 18px;
                 font-weight: 100;
-            }
 
-            li
-            {
-                text-align: center;
+                @media #{$mobile} { font-size: 12px; }
             }
         }
     }
