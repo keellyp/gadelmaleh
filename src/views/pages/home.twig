@@ -1,6 +1,6 @@
 {{ include('/partials/header.twig') }}
 
-<div class="header">
+<div class="first-section">
     <div class="header-left"></div>
     <div class="header-right">
         <div class="right-container">
@@ -13,31 +13,119 @@
                 <div>#réalisateur</div>
             </div>
             <h3>Alors que Gad Elmaleh est sans doute le comédien le plus connu et le plus aimé d'Europe, il s'est engagé dans le tout dernier chapitre de sa carrière: se transmettre au public américain.</h3>
+            <form class="form-year" action="#" method="get">
+                <div class="select-style">
+                    <select name="formYear" required>
+                        <option disabled selected>Choose a year</option>
+                        <option>1999</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option>2007</option>
+                        <option>2008</option>
+                        <option>2009</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                    </select>
+                </div>
+                <input type="submit" value="Envoyer">
+            </form>
         </div>
     </div>
-    <section>
-        <form class="form-year" action="#" method="get">
-            <div class="select-style">
-                <select name="formYear" required>
-                    <option disabled selected>Choose a year</option>
-                    <option>1999</option>
-                    <option>2000</option>
-                    <option>2001</option>
-                    <option>2002</option>
-                </select>
-            </div>
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
 </div>
-<section>
+<section class="container-box">
     <article>
         <div class="title">
             <h3>Derniers films</h3>
-            <p>TOUT VOIR</p>
+            <p><a href="#">TOUT VOIR</a></p>
         </div>
         <div class="img-box">
-            <div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+        </div>
+    </article>
+</section>
+<section class="container-box">
+    <article>
+        <div class="title">
+            <h3>Derniers doublages</h3>
+            <p><a href="#">TOUT VOIR</a></p>
+        </div>
+        <div class="img-box">
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+        </div>
+    </article>
+</section>
+<section class="container-box">
+    <article>
+        <div class="title">
+            <h3>Derniers spectacles</h3>
+            <p><a href="#">TOUT VOIR</a></p>
+        </div>
+        <div class="img-box">
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+        </div>
+    </article>
+</section>
+<section class="container-box">
+    <article>
+        <div class="title">
+            <h3>Derniers courts-métrages</h3>
+            <p><a href="#">TOUT VOIR</a></p>
+        </div>
+        <div class="img-box">
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
+                <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
+            </div>
+            <div class="poster">
                 <img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster">
             </div>
         </div>

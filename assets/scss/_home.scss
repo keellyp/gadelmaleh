@@ -1,9 +1,8 @@
-.header
+.first-section
 {
     display: flex;
     flex-direction: row;
     margin-top: 10vh;
-    position: relative;
 
     .header-left, .header-right
     {
@@ -35,6 +34,10 @@
         .right-container
         {
             width: 70%;
+            display: flex;
+            flex-direction: column;
+            height: 70%;
+            justify-content: space-between;
             @media #{$mobile} { width: 80%; }
 
             .right-adj
@@ -42,7 +45,6 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                margin: 1em 0;
                 width: 50%;
                 @media #{$mobile} { width: 40%; }
 
@@ -54,55 +56,47 @@
                     @media #{$large} { font-size: 22px; }
                 }
             }
-        }
-    }
-}
-section
-{
-    // width: 100%;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
 
-    .form-year
-    {
-        width: 100%;
-        font-weight: 600;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        position: absolute;
-        bottom: 5%;
-        left: 0;
+            .form-year
+            {
+                width: 100%;
+                font-weight: 600;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
 
-        .select-style {
-            height: 35px;
-            border: 2px solid $main-color;
-            border-radius: 20px;
-            width: 15%;
-            overflow: hidden;
-            background: white url("../img/down-arrow.svg") no-repeat 90% 50%;
-            background-size: 10px;
-            color: $main-color;
-        }
+                .select-style
+                {
+                    height: 35px;
+                    border: 2px solid $main-color;
+                    border-radius: 20px;
+                    width: 50%;
+                    overflow: hidden;
+                    background: white url("../img/down-arrow.svg") no-repeat 90% 50%;
+                    background-size: 10px;
+                    color: $main-color;
+                }
 
-        .select-style select {
-            width: 100%;
-            padding: 0 10px;
-            -webkit-appearance: none;
-        }
+                .select-style select
+                {
+                    width: 100%;
+                    padding: 0 10px;
+                    -webkit-appearance: none;
+                }
 
-        .select-style select:focus { outline: none; }
+                .select-style select:focus { outline: none; }
 
-        input[type=submit]
-        {
-            background-color: $main-color;
-            width: 10%;
-            height: 35px;
-            color: white;
-            border-radius: 20px;
-            margin: 0 20px;
+                input[type=submit]
+                {
+                    background-color: $main-color;
+                    width: 30%;
+                    height: 35px;
+                    color: white;
+                    border-radius: 20px;
+                    margin: 0 20px;
+
+                }
+            }
 
         }
     }
