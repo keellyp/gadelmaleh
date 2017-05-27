@@ -31,9 +31,23 @@ section
 
             .poster
             {
-                width: 23%;
+                width: calc(100% / 4  - 2%);
                 height: auto;
+                @media #{$tablet} { width: calc(100% / 3  - 2%); }
+                @media #{$mobile} { width: calc(100% / 2  - 2%); }
             }
         }
+    }
+}
+
+@media #{$tablet}
+{
+    .poster:last-child { display: none; }
+}
+@media #{$mobile}
+{
+    .poster:nth-child(3), .poster:last-child
+    {
+        display: none;
     }
 }
