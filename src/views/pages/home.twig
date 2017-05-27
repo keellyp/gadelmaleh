@@ -65,18 +65,11 @@
             <p><a href="{{  url('spectacles') }}">TOUT VOIR</a></p>
         </div>
         <div class="img-box">
+            {% for _spectacle in fewSpectacles %}
             <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
+                <a href="{{ url('spectacle', {id:_spectacle.id}) }}"><img src="{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png" alt="poster"></a>
             </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
+            {% endfor %}
         </div>
     </article>
 </section>
@@ -87,18 +80,11 @@
             <p><a href="{{  url('dubbings') }}">TOUT VOIR</a></p>
         </div>
         <div class="img-box">
+            {% for _dubbing in fewDubbings %}
             <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
+                <a href="{{ url('dubbing', {id:_dubbing.id}) }}"><img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster"></a>
             </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
+            {% endfor %}
         </div>
     </article>
 </section>
@@ -109,18 +95,11 @@
             <p><a href="{{  url('shortfilms') }}">TOUT VOIR</a></p>
         </div>
         <div class="img-box">
+            {% for _shortFilm in fewShort %}
             <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
+                <a href="{{ url('shortfilm', {id:_shortFilm.id}) }}"><img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png" alt="poster"></a>
             </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
-            <div class="poster">
-                <a href="#"><img src="{{ global.request.basepath }}/dist/img/film1.jpg" alt="poster"></a>
-            </div>
+            {% endfor %}
         </div>
     </article>
 </section>

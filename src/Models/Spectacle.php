@@ -18,11 +18,20 @@ class Spectacle
 
         return $spectacles;
     }
+
     public function countAll()
     {
         $query = $this->db->query('SELECT COUNT(*) AS count FROM onemanshow');
         $count = $query->fetch();
 
         return $count;
+    }
+
+    public function getFew()
+    {
+        $query = $this->db->query('SELECT * FROM onemanshow ORDER BY date DESC LIMIT 4');
+        $fewSpectacles = $query->fetchAll();
+
+        return $fewSpectacles;
     }
 }

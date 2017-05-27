@@ -34,25 +34,47 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\LocaleServiceProvider());
 
+
+//Create routes
+
+$app
+    ->before(function() use ($app)
+    {
+        $cinemaModel = new \Site\Models\Cinema($app['db']);
+        $spectacleModel = new \Site\Models\Spectacle($app['db']);
+        $dubbingModel = new \Site\Models\Dubbing($app['db']);
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+
+        // Count content for footer
+        $data = array();
+
+        $data['countFilms'] = $cinemaModel->countAll();
+        $data['countSpectacles'] = $spectacleModel->countAll();
+        $data['countDubbings'] = $dubbingModel->countAll();
+        $data['countShortfilms'] = $shortfilmModel->countAll();
+
+        $app['twig']-> addGlobal('countFilms', $data['countFilms']);
+        $app['twig']-> addGlobal('countSpectacles', $data['countSpectacles']);
+        $app['twig']-> addGlobal('countDubbings', $data['countDubbings']);
+        $app['twig']-> addGlobal('countShortfilms', $data['countShortfilms']);
+    });
+
 // Create route for home
 $app
     ->get('/', function() use ($app)
     {
-        $data = array();
-
         $cinemaModel = new \Site\Models\Cinema($app['db']);
         $spectacleModel = new \Site\Models\Spectacle($app['db']);
         $dubbingModel = new \Site\Models\Dubbing($app['db']);
         $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
 
         // Get few content
-        $data['fewFilms'] = $cinemaModel->getFew();
+        $data = array();
 
-        // Count content for footer
-        $data['countFilms'] = $cinemaModel->countAll();
-        $data['countSpectacles'] = $spectacleModel->countAll();
-        $data['countDubbings'] = $dubbingModel->countAll();
-        $data['countShortfilms'] = $shortfilmModel->countAll();
+        $data['fewFilms'] = $cinemaModel->getFew();
+        $data['fewSpectacles'] = $spectacleModel->getFew();
+        $data['fewDubbings'] = $dubbingModel->getFew();
+        $data['fewShort'] = $shortfilmModel->getFew();
 
         return $app['twig']->render('/pages/home.twig', $data);
     })
@@ -152,11 +174,15 @@ $app
 $app
     ->get('/shortfilm/{id}', function($id) use ($app)
     {
+        if(!$id)
+        {
+            $app->abort(404);
+        }
+
         return $app['twig']->render('/pages/shortfilm.twig');
     })
     ->assert('id', '\d+')
     ->bind('shortfilm');
-
 
 // Run Silex
 $app->run();
