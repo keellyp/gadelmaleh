@@ -13,6 +13,9 @@
     {
       content: '';
       width: calc(100% / 4  - 2%);
+
+      @media #{$tablet} { width: calc(100% / 3  - 2%); }
+      @media #{$mobile} { width: calc(100% / 2  - 2%); }
     }
 
     @media #{$tablet}

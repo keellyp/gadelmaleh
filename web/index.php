@@ -35,46 +35,54 @@ $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\LocaleServiceProvider());
 
 // Create routes
-$app->get('/', function() use ($app)
-{
-    $data = array();
+$app
+    ->get('/', function() use ($app)
+    {
+        return $app['twig']->render('/pages/home.twig');
+    })
+    ->bind('home');
 
-    $artistModel = new \Site\Models\Artist($app['db']);
-    $data['artist'] = $artistModel->getAll();
+$app
+    ->get('/films', function() use ($app)
+    {
+        $data = array();
 
-    return $app['twig']->render('/pages/home.twig', $data);
-})
-->bind('home');
+        $cinemaModel = new \Site\Models\Cinema($app['db']);
+        $data['films'] = $cinemaModel->getAll();
 
-$app->get('/date', function() use ($app)
-{
-    return $app['twig']->render('/pages/date.twig');
-})
-->bind('date');
+        return $app['twig']->render('/pages/films.twig', $data);
+    })
+    ->bind('films');
+$app
+    ->get('/film/{id}', function($id) use ($app)
+    {
+        $data = array();
 
-$app->get('/films', function() use ($app)
-{
-    return $app['twig']->render('/pages/films.twig');
-})
-->bind('films');
+        return $app['twig']->render('/pages/film.twig', $data);
+    })
+    ->assert('id', '\d+')
+    ->bind('film');
 
-$app->get('/spectacles', function() use ($app)
-{
-    return $app['twig']->render('/pages/spectacles.twig');
-})
-->bind('spectacles');
+$app
+    ->get('/spectacles', function() use ($app)
+    {
+        return $app['twig']->render('/pages/spectacles.twig');
+    })
+    ->bind('spectacles');
 
-$app->get('/dubbing', function() use ($app)
-{
-    return $app['twig']->render('/pages/dubbing.twig');
-})
-->bind('dubbing');
+$app
+    ->get('/dubbing', function() use ($app)
+    {
+        return $app['twig']->render('/pages/dubbing.twig');
+    })
+    ->bind('dubbing');
 
-$app->get('/shortfilms', function() use ($app)
-{
-    return $app['twig']->render('/pages/shortfilms.twig');
-})
-->bind('shortfilms');
+$app
+    ->get('/shortfilms', function() use ($app)
+    {
+        return $app['twig']->render('/pages/shortfilms.twig');
+    })
+    ->bind('shortfilms');
 
 
 // Run Silex

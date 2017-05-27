@@ -2,7 +2,7 @@
 
 namespace Site\Models;
 
-class Artist
+class Cinema
 {
     public $db;
 
@@ -13,7 +13,9 @@ class Artist
 
     public function getAll()
     {
-        $query = $this->db->query('SELECT * FROM cinema');
-        $artist = $query->fetchAll();
+        $query = $this->db->query('SELECT * FROM cinema ORDER BY date DESC');
+        $films = $query->fetchAll();
+
+        return $films;
     }
 }

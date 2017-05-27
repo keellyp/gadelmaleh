@@ -72,7 +72,7 @@ gulp.task( 'javascript', function()
 // Minifies images
 gulp.task( 'images', function()
 {
-    return gulp.src(config.assets + 'images/*')
+    return gulp.src(config.assets + 'images/**')
         .pipe( gulp_imagemin() )
         .pipe( gulp.dest(config.dist + 'img') )
         .pipe( gulp_notify('minified !') )
@@ -86,10 +86,8 @@ gulp.task( 'fonts', function()
 } );
 
 // Watch all my task
-gulp.task( 'watch', ['style', 'javascript', 'images', 'fonts'], function()
+gulp.task( 'watch', ['style', 'javascript'], function()
 {
     gulp.watch(config.scss + '**/*.scss', ['style']);
     gulp.watch(config.js + '**/*.js', ['javascript']);
-    gulp.watch(config.assets + 'images/*', ['images']);
-    gulp.watch(config.assets + 'fonts/*', ['fonts']);
 } );
