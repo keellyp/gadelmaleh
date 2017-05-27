@@ -18,4 +18,11 @@ class Shortfilm
 
         return $shortfilms;
     }
+    public function countAll()
+    {
+        $query = $this->db->query('SELECT COUNT(*) AS count FROM shortfilm');
+        $count = $query->fetch();
+
+        return $count;
+    }
 }

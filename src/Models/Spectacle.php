@@ -18,4 +18,11 @@ class Spectacle
 
         return $spectacles;
     }
+    public function countAll()
+    {
+        $query = $this->db->query('SELECT COUNT(*) AS count FROM onemanshow');
+        $count = $query->fetch();
+
+        return $count;
+    }
 }

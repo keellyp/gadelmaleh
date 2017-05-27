@@ -18,4 +18,11 @@ class Dubbing
 
         return $dubbings;
     }
+    public function countAll()
+    {
+        $query = $this->db->query('SELECT COUNT(*) AS count FROM dubbing');
+        $count = $query->fetch();
+
+        return $count;
+    }
 }

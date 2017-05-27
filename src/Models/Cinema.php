@@ -18,4 +18,21 @@ class Cinema
 
         return $films;
     }
+
+    public function countAll()
+    {
+        $query = $this->db->query('SELECT COUNT(*) AS count FROM cinema');
+        $count = $query->fetch();
+
+        return $count;
+    }
+
+    public function getFew()
+    {
+        $query = $this->db->query('SELECT * FROM cinema ORDER BY date DESC LIMIT 4');
+        $fewFilms = $query->fetchAll();
+
+        return $fewFilms;
+    }
+
 }

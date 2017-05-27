@@ -38,7 +38,23 @@ $app->register(new Silex\Provider\LocaleServiceProvider());
 $app
     ->get('/', function() use ($app)
     {
-        return $app['twig']->render('/pages/home.twig');
+        $data = array();
+
+        $cinemaModel = new \Site\Models\Cinema($app['db']);
+        $spectacleModel = new \Site\Models\Spectacle($app['db']);
+        $dubbingModel = new \Site\Models\Dubbing($app['db']);
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+
+        // Get few content
+        $data['fewFilms'] = $cinemaModel->getFew();
+
+        // Count content for footer
+        $data['countFilms'] = $cinemaModel->countAll();
+        $data['countSpectacles'] = $spectacleModel->countAll();
+        $data['countDubbings'] = $dubbingModel->countAll();
+        $data['countShortfilms'] = $shortfilmModel->countAll();
+
+        return $app['twig']->render('/pages/home.twig', $data);
     })
     ->bind('home');
 
@@ -50,6 +66,16 @@ $app
         $data = array();
 
         $cinemaModel = new \Site\Models\Cinema($app['db']);
+        $spectacleModel = new \Site\Models\Spectacle($app['db']);
+        $dubbingModel = new \Site\Models\Dubbing($app['db']);
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+
+        // Count content for footer
+        $data['countFilms'] = $cinemaModel->countAll();
+        $data['countSpectacles'] = $spectacleModel->countAll();
+        $data['countDubbings'] = $dubbingModel->countAll();
+        $data['countShortfilms'] = $shortfilmModel->countAll();
+
         $data['films'] = $cinemaModel->getAll();
 
         return $app['twig']->render('/pages/films.twig', $data);
