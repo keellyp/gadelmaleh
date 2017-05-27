@@ -34,7 +34,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\LocaleServiceProvider());
 
-// Create routes
+// Create route for home
 $app
     ->get('/', function() use ($app)
     {
@@ -42,6 +42,8 @@ $app
     })
     ->bind('home');
 
+
+// Create route for films
 $app
     ->get('/films', function() use ($app)
     {
@@ -63,13 +65,29 @@ $app
     ->assert('id', '\d+')
     ->bind('film');
 
+
+// Create route for spectacles
 $app
     ->get('/spectacles', function() use ($app)
     {
-        return $app['twig']->render('/pages/spectacles.twig');
+        $data = array();
+
+        $spectacleModel = new \Site\Models\Spectacle($app['db']);
+        $data['spectacles'] = $spectacleModel->getAll();
+
+        return $app['twig']->render('/pages/spectacles.twig', $data);
     })
     ->bind('spectacles');
+$app
+    ->get('/spectacle/{id}', function($id) use ($app)
+    {
+        return $app['twig']->render('/pages/spectacle.twig');
+    })
+    ->assert('id', '\d+')
+    ->bind('spectacle');
 
+
+// Create route for dubbings
 $app
     ->get('/dubbings', function() use ($app)
     {
@@ -91,6 +109,8 @@ $app
     ->assert('id', '\d+')
     ->bind('dubbing');
 
+
+// Create route for shortfilms
 $app
     ->get('/shortfilms', function() use ($app)
     {
