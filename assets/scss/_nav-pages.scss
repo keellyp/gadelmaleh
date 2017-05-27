@@ -1,0 +1,29 @@
+.nav-pages
+{
+    width : 100%;
+    height : 100%;
+
+    .description
+    {
+        width: 80%;
+        padding-top: 5em;
+    }
+
+    .img-box::after
+    {
+      content: '';
+      width: calc(100% / 4  - 2%);
+    }
+
+    @media #{$tablet}
+    {
+        .poster:last-child { display: block; }
+    }
+    @media #{$mobile}
+    {
+        .poster:nth-child(3), .poster:last-child
+        {
+            display: block;
+        }
+    }
+}

@@ -34,7 +34,10 @@ body
 {
     width: 95%;
     margin: auto;
-
+}
+.first-box
+{
+    margin-top: 10vh
 }
 
 img
@@ -44,5 +47,6 @@ img
 }
 
 @import "_partials.scss";
+@import "_nav-pages.scss";
 @import "_home.scss";
 @import "_home-section.scss";
