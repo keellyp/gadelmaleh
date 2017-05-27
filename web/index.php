@@ -71,10 +71,24 @@ $app
     ->bind('spectacles');
 
 $app
-    ->get('/dubbing', function() use ($app)
+    ->get('/dubbings', function() use ($app)
     {
-        return $app['twig']->render('/pages/dubbing.twig');
+        $data = array();
+
+        $dubbingModel = new \Site\Models\Dubbing($app['db']);
+        $data['dubbings'] = $dubbingModel->getAll();
+
+        return $app['twig']->render('/pages/dubbings.twig', $data);
     })
+    ->bind('dubbings');
+$app
+    ->get('/dubbing/{id}', function($id) use ($app)
+    {
+        $data = array();
+
+        return $app['twig']->render('/pages/dubbing.twig', $data);
+    })
+    ->assert('id', '\d+')
     ->bind('dubbing');
 
 $app
