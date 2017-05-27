@@ -28,3 +28,39 @@ header
         }
     }
 }
+footer
+{
+    width: 100%;
+    background-color: $main-color;
+    color: white;
+    margin-top: 10vh;
+
+    .footer
+    {
+        display: flex;
+        align-items: center;
+        height: 20vh;
+
+        ul
+        {
+            flex-grow: 1;
+
+            li:first-child
+            {
+                font-size: 44px;
+                font-weight: 600;
+                padding: 10px 0;
+            }
+            li:last-child
+            {
+                font-size: 18px;
+                font-weight: 100;
+            }
+
+            li
+            {
+                text-align: center;
+            }
+        }
+    }
+}
