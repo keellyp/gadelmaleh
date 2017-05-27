@@ -14,7 +14,7 @@
         background-image: url(../img/gad_bg.png);
         background-size: cover;
         background-position: 50% 0;
-        @media #{$mobile} { display: none; }
+        @media #{$mobile, $tablet} { display: none; }
     }
 
     .header-right
@@ -23,7 +23,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        @media #{$mobile}
+        @media #{$mobile, $tablet}
         {
             width: 100%;
             background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url(../img/gad_bg.png);
@@ -36,9 +36,22 @@
             width: 70%;
             display: flex;
             flex-direction: column;
-            height: 70%;
+            height: 80%;
             justify-content: space-between;
-            @media #{$mobile} { width: 80%; }
+
+            @media #{$mobile}
+            {
+                width: 80%;
+                height: 80%;
+            }
+            .right-logo
+            {
+                @media #{$tablet}
+                {
+                    width: 70%;
+                    margin: 0 auto;
+                }
+            }
 
             .right-adj
             {
@@ -46,7 +59,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 width: 50%;
-                @media #{$mobile} { width: 40%; }
+                @media #{$mobile, $tablet} { width: 30%; }
 
                 div
                 {
@@ -72,9 +85,11 @@
                     border-radius: 20px;
                     width: 50%;
                     overflow: hidden;
-                    background: white url("../img/down-arrow.svg") no-repeat 90% 50%;
+                    background: rgba(255,255,255,0.5) url("../img/down-arrow.svg") no-repeat 90% 50%;
                     background-size: 10px;
                     color: $main-color;
+                    display: flex;
+                    align-items: center;
                 }
 
                 .select-style select
