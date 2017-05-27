@@ -52,6 +52,30 @@ $app->get('/date', function() use ($app)
 })
 ->bind('date');
 
+$app->get('/films', function() use ($app)
+{
+    return $app['twig']->render('/pages/films.twig');
+})
+->bind('films');
+
+$app->get('/spectacles', function() use ($app)
+{
+    return $app['twig']->render('/pages/spectacles.twig');
+})
+->bind('spectacles');
+
+$app->get('/dubbing', function() use ($app)
+{
+    return $app['twig']->render('/pages/dubbing.twig');
+})
+->bind('dubbing');
+
+$app->get('/shortfilms', function() use ($app)
+{
+    return $app['twig']->render('/pages/shortfilms.twig');
+})
+->bind('shortfilms');
+
 
 // Run Silex
 $app->run();

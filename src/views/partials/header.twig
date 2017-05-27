@@ -5,18 +5,23 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
         <title>GAD ELMALEH | Accueil</title>
         <meta description="Site non officiel de Gad Elmaleh qui archive tous les contenus de Gad Elmaleh"/>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,900" rel="stylesheet">
         <link rel="stylesheet" href="{{ global.request.basepath }}/dist/css/style.min.css">
     </head>
     <body>
         <div class="container">
             <header>
                 <nav class="container-box">
+                    <div class="logo">
+                        <a href="{{  url('home') }}">
+                            <img src="{{ global.request.basepath }}/dist/img/logo_gad.png" alt="">
+                        </a>
+                    </div>
                     <ul>
-                        <li><a href="#">FILMS</a></li>
-                        <li><a href="#">SPECTACLES</a></li>
-                        <li><a href="#">DOUBLAGES</a></li>
-                        <li><a href="#">COURTS-MÉTRAGES</a></li>
+                        <li><a href="{{  url('films') }}">FILMS</a></li>
+                        <li><a href="{{  url('spectacles') }}">SPECTACLES</a></li>
+                        <li><a href="{{  url('dubbing') }}">DOUBLAGES</a></li>
+                        <li><a href="{{  url('shortfilms') }}">COURTS-MÉTRAGES</a></li>
                     </ul>
                 </nav>
             </header>

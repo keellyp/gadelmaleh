@@ -12,21 +12,37 @@ header
 
     nav
     {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo
+        {
+            width: 15%;
+            height: auto;
+
+            a
+            {
+                display: block;
+            }
+        }
+
         ul
         {
             display: flex;
             justify-content: space-between;
-            width: 50%;
+            width: 40%;
 
-            @media #{$large} { width: 40%; }
-            @media #{$tablet} { width: 80%; }
-            @media #{$mobile} { width: 100%; }
+            @media #{$tablet} { width: 50%; }
+            @media #{$mobile} { width: 70%; }
 
             li
             {
-                font-weight: 600;
-                font-size: 20px;
+                font-weight: 500;
+                font-size: 14px;
                 @media #{$mobile} { font-size: 10px; }
+                @media #{$large} { font-size: 20px; }
             }
         }
     }
