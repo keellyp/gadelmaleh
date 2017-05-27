@@ -94,9 +94,22 @@ $app
 $app
     ->get('/shortfilms', function() use ($app)
     {
-        return $app['twig']->render('/pages/shortfilms.twig');
+        $data = array();
+
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+        $data['shortfilms'] = $shortfilmModel->getAll();
+
+        return $app['twig']->render('/pages/shortfilms.twig', $data);
     })
     ->bind('shortfilms');
+
+$app
+    ->get('/shortfilm/{id}', function($id) use ($app)
+    {
+        return $app['twig']->render('/pages/shortfilm.twig');
+    })
+    ->assert('id', '\d+')
+    ->bind('shortfilm');
 
 
 // Run Silex
