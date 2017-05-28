@@ -13,33 +13,41 @@
                 <div>#réalisateur</div>
             </div>
             <h3>Alors que Gad Elmaleh est sans doute le comédien le plus connu et le plus aimé d'Europe, il s'est engagé dans le tout dernier chapitre de sa carrière: se transmettre au public américain.</h3>
-            <form class="form-year" action="#" method="get">
+
+            {{ form_start(year_form, {'attr' : { 'class': 'form-year' } }) }}
+            <div class="select-style">
+                {{ form_widget(year_form.year) }}
+            </div>
+            {{ form_widget(year_form.submit, { 'label': 'Envoyer' }) }}
+            {{ form_end(year_form) }}
+
+            <!-- <form class="form-year" action="#" method="get">
                 <div class="select-style">
-                    <select name="formYear" required>
+                    <select name="date" required>
                         <option disabled selected>Choose a year</option>
-                        <option>1999</option>
-                        <option>2000</option>
-                        <option>2001</option>
-                        <option>2002</option>
-                        <option>2003</option>
-                        <option>2004</option>
-                        <option>2005</option>
-                        <option>2006</option>
-                        <option>2007</option>
-                        <option>2008</option>
-                        <option>2009</option>
-                        <option>2010</option>
-                        <option>2011</option>
-                        <option>2012</option>
-                        <option>2013</option>
-                        <option>2014</option>
-                        <option>2015</option>
-                        <option>2016</option>
-                        <option>2017</option>
+                        <option value='1999'>1999</option>
+                        <option value='2000'>2000</option>
+                        <option value='2001'>2001</option>
+                        <option value='1999'>2002</option>
+                        <option value='1999'>2003</option>
+                        <option value='1999'>2004</option>
+                        <option value='1999'>2005</option>
+                        <option value='1999'>2006</option>
+                        <option value='1999'>2007</option>
+                        <option value='1999'>2008</option>
+                        <option value='1999'>2009</option>
+                        <option value='1999'>2010</option>
+                        <option value='1999'>2011</option>
+                        <option value='1999'>2012</option>
+                        <option value='1999'>2013</option>
+                        <option value='1999'>2014</option>
+                        <option value='1999'>2015</option>
+                        <option value='1999'>2016</option>
+                        <option value='1999'>2017</option>
                     </select>
                 </div>
                 <input type="submit" value="Envoyer">
-            </form>
+            </form> -->
         </div>
     </div>
 </div>

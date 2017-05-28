@@ -1,0 +1,30 @@
+{{ include('/partials/header.twig') }}
+
+<div class="container-box">
+    <div class="nav-pages">
+        <div class="first-box">
+            <p class="description">
+                Voici un aperçu des oeuvres toutes catégories confondues de Gad Elmaleh en {{ date }}
+            </p>
+
+        </div>
+        <section>
+            <article>
+                <div class="title">
+                    <h3>{{ date}}</h3>
+                </div>
+                <div class="img-box">
+                    {% for _content in contents %}
+                    <div class="poster">
+{{ _content.content }}
+
+                        <a href=" {{ url('film', {id: _content.id} ) }} "><img src="{{ global.request.basepath }}/dist/img{{_content.picture}}" alt="poster"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </section>
+    </div>
+</div>
+
+{{ include('/partials/footer.twig') }}
