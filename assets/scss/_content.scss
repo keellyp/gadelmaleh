@@ -1,0 +1,36 @@
+.content-informations
+{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    section
+    {
+        display: flex;
+        flex-direction: row;
+
+        .informations-img
+        {
+            width: 50%;
+
+            .img-box
+            {
+                margin: auto;
+                width: 50%;
+            }
+        }
+        .informations-text
+        {
+            width: 50%;
+
+            h1
+            {
+                font-weight: 900;
+                font-size: 22px;
+                padding: 1em 0;
+            }
+        }
+    }
+}

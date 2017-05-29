@@ -8,20 +8,22 @@
             </p>
 
         </div>
-        <section>
-            <article>
-                <div class="title">
-                    <h3>Tous les courts-métrages</h3>
-                </div>
-                <div class="img-box">
-                    {% for _shortfilm in shortfilms %}
-                    <div class="poster">
-                        <a href="{{ url('shortfilm', {id:_shortfilm.id}) }}"><img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortfilm.id}}.png" alt="poster"></a>
+        <div class="container-contents">
+            <section>
+                <article>
+                    <div class="title">
+                        <h3>Tous les courts-métrages</h3>
                     </div>
-                    {% endfor %}
-                </div>
-            </article>
-        </section>
+                    <div class="img-box">
+                        {% for _shortfilm in shortfilms %}
+                        <div class="poster">
+                            <a href="{{ url('shortfilm', {id:_shortfilm.id}) }}"><img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortfilm.id}}.png" alt="poster"></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </article>
+            </section>
+        </div>
     </div>
 </div>
 

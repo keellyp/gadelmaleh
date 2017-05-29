@@ -241,7 +241,7 @@ $app
     {
         $data = array();
 
-        $shortfilmModel = new \Site\Models\Dubbing($app['db']);
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
         $data['shortfilms'] = $shortfilmModel->getAll();
 
         return $app['twig']->render('/pages/shortfilms.twig', $data);
@@ -258,7 +258,7 @@ $app
         {
             $data = array();
 
-            $shortfilmModel = new \Site\Models\Dubbing($app['db']);
+            $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
             $data['content'] = $shortfilmModel->getContentById($id);
         }
 

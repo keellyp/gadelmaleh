@@ -42,9 +42,6 @@ class Shortfilm
         $prepare->execute();
         $content = $prepare->fetchAll();
 
-
-                echo '<pre>';
-                print_r($content);
-                echo '</pre>';
+        return $content;
     }
 }
