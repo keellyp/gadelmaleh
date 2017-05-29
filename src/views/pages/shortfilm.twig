@@ -1,1 +1,23 @@
-hello
+{{ include('/partials/header.twig') }}
+
+<div class="first-section container-box">
+    <div class="content-informations">
+        <section>
+            {% for _content in content %}
+                <div class="informations-img">
+                    <div class="img-box">
+                        <img src="{{ global.request.basepath }}/dist/img/{{ _content.picture }}" alt="">
+                    </div>
+                </div>
+                <div class="informations-text">
+                    <h1>{{ _content.name }}</h1>
+                    <div class="">Date : {{ _content.date }}</div>
+                    <div class="">Réalisateur : {{ _content.producer }}</div>
+                    <div class="">Rôle dans l'oeuvre : {{ _content.role }}</div>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+
+{{ include('/partials/footer.twig') }}
