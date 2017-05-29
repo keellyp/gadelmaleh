@@ -40,7 +40,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-// MIDDLEWARE
+// Middlewares
 $app
     ->before(function() use ($app)
     {
@@ -51,8 +51,7 @@ $app
         $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
 
 
-        // Count contents for footer
-
+        // Get contents length for footer
         $data = array();
         $data['countFilms'] = $cinemaModel->countAll();
         $data['countSpectacles'] = $spectacleModel->countAll();
@@ -203,7 +202,7 @@ $app
         $spectacleModel = new \Site\Models\Spectacle($app['db']);
         $data['content'] = $spectacleModel->getContentById($id);
 
-        return $app['twig']->render('/pages/spectacle.twig');
+        return $app['twig']->render('/pages/spectacle.twig', $data);
     })
     ->assert('id', '\d+')
     ->bind('spectacle');
@@ -262,7 +261,7 @@ $app
             $data['content'] = $shortfilmModel->getContentById($id);
         }
 
-        return $app['twig']->render('/pages/shortfilm.twig');
+        return $app['twig']->render('/pages/shortfilm.twig', $data);
     })
     ->assert('id', '\d+')
     ->bind('shortfilm');
