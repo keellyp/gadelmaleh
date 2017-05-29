@@ -30,8 +30,21 @@ class Dubbing
     public function getFew()
     {
         $query = $this->db->query('SELECT * FROM dubbing ORDER BY date DESC LIMIT 4');
-        $fewDubbings = $query->fetchAll();
+        $fewFilms = $query->fetchAll();
 
-        return $fewDubbings;
+        return $fewFilms;
+    }
+
+    public function getContentById($id)
+    {
+        $prepare = $this->db->prepare('SELECT * FROM dubbing WHERE id= :id');
+        $prepare->bindValue('id', $id);
+        $prepare->execute();
+        $content = $prepare->fetchAll();
+
+
+                echo '<pre>';
+                print_r($content);
+                echo '</pre>';
     }
 }

@@ -30,8 +30,21 @@ class Spectacle
     public function getFew()
     {
         $query = $this->db->query('SELECT * FROM onemanshow ORDER BY date DESC LIMIT 4');
-        $fewSpectacles = $query->fetchAll();
+        $fewFilms = $query->fetchAll();
 
-        return $fewSpectacles;
+        return $fewFilms;
+    }
+
+    public function getContentById($id)
+    {
+        $prepare = $this->db->prepare('SELECT * FROM onemanshow WHERE id= :id');
+        $prepare->bindValue('id', $id);
+        $prepare->execute();
+        $content = $prepare->fetchAll();
+
+
+                echo '<pre>';
+                print_r($content);
+                echo '</pre>';
     }
 }

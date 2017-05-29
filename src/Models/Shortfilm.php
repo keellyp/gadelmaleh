@@ -30,8 +30,21 @@ class Shortfilm
     public function getFew()
     {
         $query = $this->db->query('SELECT * FROM shortfilm ORDER BY date DESC LIMIT 4');
-        $fewShort = $query->fetchAll();
+        $fewFilms = $query->fetchAll();
 
-        return $fewShort;
+        return $fewFilms;
+    }
+
+    public function getContentById($id)
+    {
+        $prepare = $this->db->prepare('SELECT * FROM shortfilm WHERE id= :id');
+        $prepare->bindValue('id', $id);
+        $prepare->execute();
+        $content = $prepare->fetchAll();
+
+
+                echo '<pre>';
+                print_r($content);
+                echo '</pre>';
     }
 }

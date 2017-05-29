@@ -29,6 +29,4 @@ class Joins
 
         return $content;
     }
-
-
 }

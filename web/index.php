@@ -198,6 +198,11 @@ $app
 $app
     ->get('/spectacle/{id}', function($id) use ($app)
     {
+        $data = array();
+
+        $spectacleModel = new \Site\Models\Spectacle($app['db']);
+        $data['content'] = $spectacleModel->getContentById($id);
+
         return $app['twig']->render('/pages/spectacle.twig');
     })
     ->assert('id', '\d+')
@@ -221,6 +226,9 @@ $app
     {
         $data = array();
 
+        $dubbingModel = new \Site\Models\Dubbing($app['db']);
+        $data['content'] = $dubbingModel->getContentById($id);
+
         return $app['twig']->render('/pages/dubbing.twig', $data);
     })
     ->assert('id', '\d+')
@@ -233,7 +241,7 @@ $app
     {
         $data = array();
 
-        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+        $shortfilmModel = new \Site\Models\Dubbing($app['db']);
         $data['shortfilms'] = $shortfilmModel->getAll();
 
         return $app['twig']->render('/pages/shortfilms.twig', $data);
@@ -245,6 +253,13 @@ $app
         if(!$id)
         {
             $app->abort(404);
+        }
+        else
+        {
+            $data = array();
+
+            $shortfilmModel = new \Site\Models\Dubbing($app['db']);
+            $data['content'] = $shortfilmModel->getContentById($id);
         }
 
         return $app['twig']->render('/pages/shortfilm.twig');
