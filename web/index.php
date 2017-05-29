@@ -174,6 +174,9 @@ $app
     {
         $data = array();
 
+        $cinemaModel = new \Site\Models\Cinema($app['db']);
+        $data['content'] = $cinemaModel->getContentById($id);
+
         return $app['twig']->render('/pages/film.twig', $data);
     })
     ->assert('id', '\d+')

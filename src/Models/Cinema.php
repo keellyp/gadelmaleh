@@ -35,4 +35,16 @@ class Cinema
         return $fewFilms;
     }
 
+    public function getContentById($id)
+    {
+        $prepare = $this->db->prepare('SELECT * FROM cinema WHERE id= :id');
+        $prepare->bindValue('id', $id);
+        $prepare->execute();
+        $content = $prepare->fetchAll();
+
+        echo '<pre>';
+        print_r($content);
+        echo '</pre>';
+    }
+
 }
