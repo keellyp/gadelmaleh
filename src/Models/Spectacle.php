@@ -37,7 +37,7 @@ class Spectacle
 
     public function getContentById($id)
     {
-        $prepare = $this->db->prepare('SELECT * FROM onemanshow WHERE id= :id');
+        $prepare = $this->db->prepare('SELECT id, name, date, picture FROM onemanshow WHERE id= :id');
         $prepare->bindValue('id', $id);
         $prepare->execute();
         $content = $prepare->fetchAll();
