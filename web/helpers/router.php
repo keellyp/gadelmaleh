@@ -78,7 +78,7 @@ $app
 
             return $app['twig']->render('/pages/date.twig', $data);
         })
-        // ->assert('date', '\d+')
+        ->assert('date', '\d+')
         ->bind('date');
 
 // Create route for films
@@ -100,7 +100,6 @@ $app
 
         return $app['twig']->render('/pages/film.twig', $data);
     })
-    // ->assert('name', '\D+')
     ->bind('film');
 
 // Create route for spectacles
@@ -121,7 +120,6 @@ $app
 
         return $app['twig']->render('/pages/spectacle.twig', $data);
     })
-    // ->assert('name', '\D+')
     ->bind('spectacle');
 
 
@@ -143,7 +141,6 @@ $app
 
         return $app['twig']->render('/pages/dubbing.twig', $data);
     })
-    // ->assert('name', '\D+')
     ->bind('dubbing');
 
 
@@ -165,7 +162,6 @@ $app
 
         return $app['twig']->render('/pages/shortfilm.twig', $data);
     })
-    // ->assert('name', '\D+')
     ->bind('shortfilm');
 $app
     ->before(function() use ($app)
@@ -181,11 +177,11 @@ $app
             -> addGlobal( 'countShortfilms', $databaseModel->countAll("shortfilm") );
     });
 
-// // Error
-// $app
-//     ->error(function() use ($app)
-//     {
-//         $data = array();
-//         $data['error'] = true;
-//         return $app['twig']->render('pages/error.twig', $data);
-//     });
+// Error
+$app
+    ->error(function() use ($app)
+    {
+        $data = array();
+        $data['error'] = true;
+        return $app['twig']->render('pages/error.twig', $data);
+    });
