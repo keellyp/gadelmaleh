@@ -17,7 +17,7 @@
                     <div class="img-box">
                         {% for _content in contents %}
                         <div class="poster">
-                            <a href=" {{ url(_content.content, {id: _content.id} ) }} "><img src="{{ global.request.basepath }}/dist/img{{_content.picture}}" alt="poster"></a>
+                            <a href=" {{ url(_content.content, {name: _content.slug} ) }} "><img src="{{ global.request.basepath }}/dist/img{{_content.picture}}" alt="poster"></a>
                         </div>
                         {% endfor %}
                     </div>

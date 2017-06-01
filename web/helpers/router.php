@@ -49,7 +49,7 @@ $app
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
 
-        if( $form->isSubmitted() && $form->isValid( ))
+        if( $form->isSubmitted() && $form->isValid() )
         {
             $form_data = $form->getData();
             return $app->redirect('date/'.$form_data['year']);
@@ -78,7 +78,7 @@ $app
 
             return $app['twig']->render('/pages/date.twig', $data);
         })
-        ->assert('date', '\d+')
+        // ->assert('date', '\d+')
         ->bind('date');
 
 // Create route for films
@@ -92,16 +92,15 @@ $app
     })
     ->bind('films');
 $app
-    ->get('/film/{id}', function($id) use ($app)
+    ->get('/film/{name}', function($name) use ($app)
     {
         $databaseModel = new \Site\Models\Database($app['db']);
-        $data['content'] = $databaseModel->getContentById('cinema', $id);
-
+        $data['content'] = $databaseModel->getContentById('cinema', $name);
         $data['awards'] = $databaseModel->awards();
 
         return $app['twig']->render('/pages/film.twig', $data);
     })
-    ->assert('id', '\d+')
+    // ->assert('name', '\D+')
     ->bind('film');
 
 // Create route for spectacles
@@ -115,14 +114,14 @@ $app
     })
     ->bind('spectacles');
 $app
-    ->get('/spectacle/{id}', function($id) use ($app)
+    ->get('/spectacle/{name}', function($name) use ($app)
     {
         $databaseModel = new \Site\Models\Database($app['db']);
-        $data['content'] = $databaseModel->getContentById('onemanshow', $id);
+        $data['content'] = $databaseModel->getContentById('onemanshow', $name);
 
         return $app['twig']->render('/pages/spectacle.twig', $data);
     })
-    ->assert('id', '\d+')
+    // ->assert('name', '\D+')
     ->bind('spectacle');
 
 
@@ -137,14 +136,14 @@ $app
     })
     ->bind('dubbings');
 $app
-    ->get('/dubbing/{id}', function($id) use ($app)
+    ->get('/dubbing/{name}', function($name) use ($app)
     {
         $databaseModel = new \Site\Models\Database($app['db']);
-        $data['content'] = $databaseModel->getContentById('dubbing', $id);
+        $data['content'] = $databaseModel->getContentById('dubbing', $name);
 
         return $app['twig']->render('/pages/dubbing.twig', $data);
     })
-    ->assert('id', '\d+')
+    // ->assert('name', '\D+')
     ->bind('dubbing');
 
 
@@ -159,19 +158,14 @@ $app
     })
     ->bind('shortfilms');
 $app
-    ->get('/shortfilm/{id}', function($id) use ($app)
+    ->get('/shortfilm/{name}', function($name) use ($app)
     {
-        if(!$id)
-        {
-            $app->abort(404);
-        }
-
         $databaseModel = new \Site\Models\Database($app['db']);
-        $data['content'] = $databaseModel->getContentById('shortfilm', $id);
+        $data['content'] = $databaseModel->getContentById('shortfilm', $name);
 
         return $app['twig']->render('/pages/shortfilm.twig', $data);
     })
-    ->assert('id', '\d+')
+    // ->assert('name', '\D+')
     ->bind('shortfilm');
 $app
     ->before(function() use ($app)

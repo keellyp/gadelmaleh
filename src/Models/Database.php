@@ -83,27 +83,27 @@ class Database
         return $fewContent;
     }
 
-    public function getContentById($table, $id)
+    public function getContentById($table, $name)
     {
         switch ($table)
         {
             case 'cinema':
-                $prepare = $this->db->prepare('SELECT * FROM cinema WHERE id=:id');
+                $prepare = $this->db->prepare('SELECT * FROM cinema WHERE slug=:slug');
                 break;
             case 'onemanshow':
-                $prepare = $this->db->prepare('SELECT * FROM onemanshow WHERE id=:id');
+                $prepare = $this->db->prepare('SELECT * FROM onemanshow WHERE slug=:slug');
                 break;
             case 'dubbing':
-                $prepare = $this->db->prepare('SELECT * FROM dubbing WHERE id=:id');
+                $prepare = $this->db->prepare('SELECT * FROM dubbing WHERE slug=:slug');
                 break;
             case 'shortfilm':
-                $prepare = $this->db->prepare('SELECT * FROM shortfilm WHERE id=:id');
+                $prepare = $this->db->prepare('SELECT * FROM shortfilm WHERE slug=:slug');
                 break;
 
             default:
                 break;
         }
-        $prepare->bindValue('id', $id);
+        $prepare->bindValue('slug', $name);
         $prepare->execute();
         $fewContent = $prepare->fetchAll();
         return $fewContent;

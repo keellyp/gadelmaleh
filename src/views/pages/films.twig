@@ -17,7 +17,7 @@
                     <div class="img-box">
                         {% for _film in films %}
                         <div class="poster">
-                            <a href="{{ url('film', {id:_film.id}) }}"><img src="{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png" alt="poster"></a>
+                            <a href="{{ url('film', {name:_film.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png" alt="poster"></a>
                         </div>
                         {% endfor %}
                     </div>

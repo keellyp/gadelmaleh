@@ -17,7 +17,7 @@
                     <div class="img-box">
                         {% for _dubbing in dubbings %}
                         <div class="poster">
-                            <a href="{{ url('dubbing', {id:_dubbing.id}) }}"><img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster"></a>
+                            <a href="{{ url('dubbing', {name:_dubbing.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster"></a>
                         </div>
                         {% endfor %}
                     </div>
