@@ -45,7 +45,27 @@ img
     width: 100%;
     height: auto;
 }
+.box
+{
+    height: 100vh;
+    background-size: 100%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
 
+    @media #{$mobile}
+    {
+        background-size: 210%;
+        background-position: 70% 100%;
+    }
+}
+
+.container-text
+{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 @import "_partials.scss";
 @import "_nav-pages.scss";
 @import "_home.scss";

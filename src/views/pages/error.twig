@@ -1,5 +1,14 @@
 {{ include('/partials/header.twig') }}
 
-oups
 
-{{ include('/partials/footer.twig') }}
+<div class="box" style="background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url({{ global.request.basepath }}/dist/img/gad_bg_2.png);">
+
+    {% if error %}
+    <div class="container-box container-text ">
+        <p>Sorry this page could not be found :(</p>
+        <p>
+            <a href=" {{ url('home') }} ">Go back</a>
+        </p>
+    </div>
+    {% endif %}
+</div>
