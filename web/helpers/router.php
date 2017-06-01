@@ -15,8 +15,7 @@ $app
         $data['fewDubbings'] = $databaseModel->getFew("dubbing");
         $data['fewShort'] = $databaseModel->getFew("shortfilm");
 
-    // FORM
-        // Create builder
+        // Form
         $formBuilder = $app['form.factory']->createBuilder();
         $formBuilder
             ->setMethod('get')
@@ -47,20 +46,17 @@ $app
             ))
             ->add('submit', SubmitType::class);
 
-        // Create form
         $form = $formBuilder->getForm();
-
-        // Handle request
         $form->handleRequest($request);
+
         if( $form->isSubmitted() && $form->isValid( ))
         {
-            // Get form data
             $form_data = $form->getData();
             return $app->redirect('date/'.$form_data['year']);
         }
 
-        // Send the form to the view
         $data['year_form'] = $form->createView();
+
         return $app['twig']->render('/pages/home.twig', $data);
     })
     ->bind('home');
@@ -72,10 +68,10 @@ $app
             $current_year = date('Y');
 
             // Handle error if the date does not exist, else get datas
-            ($date < $first_year || $date > $current_year) ? $app->abort(404) : $joinsModel = new \Site\Models\Joins($app['db']);
+            ($date < $first_year || $date > $current_year) ? $app->abort(404) : $databaseModel = new \Site\Models\Database($app['db']);
 
             $data['date'] = $date;
-            $data['contents'] = $joinsModel->getByDate($date);
+            $data['contents'] = $databaseModel->getByDate($date);
 
             // Handle error if there is no content at this date
             empty($data['contents']) ? $data['error'] = true : $data['error'] = false;
@@ -89,8 +85,6 @@ $app
 $app
     ->get('/films', function() use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['films'] = $databaseModel->getAll("cinema");
 
@@ -100,8 +94,6 @@ $app
 $app
     ->get('/film/{id}', function($id) use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('cinema', $id);
 
@@ -110,13 +102,10 @@ $app
     ->assert('id', '\d+')
     ->bind('film');
 
-
 // Create route for spectacles
 $app
     ->get('/spectacles', function() use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['spectacles'] = $databaseModel->getAll("onemanshow");
 
@@ -126,8 +115,6 @@ $app
 $app
     ->get('/spectacle/{id}', function($id) use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('onemanshow', $id);
 
@@ -141,8 +128,6 @@ $app
 $app
     ->get('/dubbings', function() use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['dubbings'] = $databaseModel->getAll("dubbing");
 
@@ -152,8 +137,6 @@ $app
 $app
     ->get('/dubbing/{id}', function($id) use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('dubbing', $id);
 
@@ -167,8 +150,6 @@ $app
 $app
     ->get('/shortfilms', function() use ($app)
     {
-        $data = array();
-
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['shortfilms'] = $databaseModel->getAll("shortfilm");
 
@@ -182,8 +163,6 @@ $app
         {
             $app->abort(404);
         }
-
-        $data = array();
 
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('shortfilm', $id);
