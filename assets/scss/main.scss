@@ -5,6 +5,12 @@ a
 {
     text-decoration: none;
 }
+::selection
+{
+    background-color: $main-color;
+    color: white;
+
+}
 body
 {
     background-color: $bg-color;
@@ -61,10 +67,33 @@ img
 
 .container-text
 {
-    height: 50%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    p:first-child
+    {
+        font-size: 42px;
+        line-height: 67px;
+        font-weight: bold;
+    }
+    p:last-child
+    {
+        font-size: 36px;
+        font-weight: bold;
+
+        a
+        {
+            display: block;
+        }
+
+        &:hover
+        {
+            color: $main-color;
+            text-decoration: underline;
+        }
+    }
 }
 @import "_partials.scss";
 @import "_nav-pages.scss";

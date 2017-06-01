@@ -9,10 +9,10 @@ $app
     array(
         'db.options' => array (
             'driver'    => 'pdo_mysql',
-            'host'      => 'localhost',
-            'dbname'    => 'gadelmaleh',
-            'user'      => 'root',
-            'password'  => 'root',
+            'host'      => $app['config']['db_host'],
+            'dbname'    => $app['config']['db_name'],
+            'user'      => $app['config']['db_user'],
+            'password'  => $app['config']['db_pass'],
             'charset'   => 'utf8'
         ),
     ) );

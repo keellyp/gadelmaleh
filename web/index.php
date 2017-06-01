@@ -1,13 +1,16 @@
 <?php
-
 // Require dependendies
 $loader = require_once __DIR__.'/../vendor/autoload.php';
 $loader
     ->addPsr4('Site\\', __DIR__.'/../src/');
 
+// Config
+include("helpers/config.php");
+
 // Init Silex
 $app = new Silex\Application();
-$app['debug'] = true;
+$app['config'] = $config;
+$app['debug'] = $app['config']['debug'];
 
 // Services
 include("helpers/services.php");

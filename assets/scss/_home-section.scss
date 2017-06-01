@@ -28,6 +28,12 @@
                 {
                     color: $second-color;
                     font-size: 10px;
+
+                    &:hover
+                    {
+                        text-decoration: underline;
+                    }
+                    a { display: block; }
                 }
             }
             .img-box
