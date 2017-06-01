@@ -15,18 +15,6 @@ $app
         $data['fewDubbings'] = $databaseModel->getFew("dubbing");
         $data['fewShort'] = $databaseModel->getFew("shortfilm");
 
-        // $cinemaModel = new \Site\Models\Cinema($app['db']);
-        // $spectacleModel = new \Site\Models\Spectacle($app['db']);
-        // $dubbingModel = new \Site\Models\Dubbing($app['db']);
-        // $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
-        //
-        // // Get few content
-        // $data = array();
-        // $data['fewFilms'] = $cinemaModel->getFew();
-        // $data['fewSpectacles'] = $spectacleModel->getFew();
-        // $data['fewDubbings'] = $dubbingModel->getFew();
-        // $data['fewShort'] = $shortfilmModel->getFew();
-
     // FORM
         // Create builder
         $formBuilder = $app['form.factory']->createBuilder();
@@ -103,8 +91,8 @@ $app
     {
         $data = array();
 
-        $cinemaModel = new \Site\Models\Cinema($app['db']);
-        $data['films'] = $cinemaModel->getAll();
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['films'] = $databaseModel->getAll("cinema");
 
         return $app['twig']->render('/pages/films.twig', $data);
     })
@@ -114,8 +102,8 @@ $app
     {
         $data = array();
 
-        $cinemaModel = new \Site\Models\Cinema($app['db']);
-        $data['content'] = $cinemaModel->getContentById($id);
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['content'] = $databaseModel->getContentById('cinema', $id);
 
         return $app['twig']->render('/pages/film.twig', $data);
     })
@@ -129,8 +117,8 @@ $app
     {
         $data = array();
 
-        $spectacleModel = new \Site\Models\Spectacle($app['db']);
-        $data['spectacles'] = $spectacleModel->getAll();
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['spectacles'] = $databaseModel->getAll("onemanshow");
 
         return $app['twig']->render('/pages/spectacles.twig', $data);
     })
@@ -140,8 +128,8 @@ $app
     {
         $data = array();
 
-        $spectacleModel = new \Site\Models\Spectacle($app['db']);
-        $data['content'] = $spectacleModel->getContentById($id);
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['content'] = $databaseModel->getContentById('onemanshow', $id);
 
         return $app['twig']->render('/pages/spectacle.twig', $data);
     })
@@ -155,8 +143,8 @@ $app
     {
         $data = array();
 
-        $dubbingModel = new \Site\Models\Dubbing($app['db']);
-        $data['dubbings'] = $dubbingModel->getAll();
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['dubbings'] = $databaseModel->getAll("dubbing");
 
         return $app['twig']->render('/pages/dubbings.twig', $data);
     })
@@ -166,8 +154,8 @@ $app
     {
         $data = array();
 
-        $dubbingModel = new \Site\Models\Dubbing($app['db']);
-        $data['content'] = $dubbingModel->getContentById($id);
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['content'] = $databaseModel->getContentById('dubbing', $id);
 
         return $app['twig']->render('/pages/dubbing.twig', $data);
     })
@@ -181,8 +169,8 @@ $app
     {
         $data = array();
 
-        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
-        $data['shortfilms'] = $shortfilmModel->getAll();
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['shortfilms'] = $databaseModel->getAll("shortfilm");
 
         return $app['twig']->render('/pages/shortfilms.twig', $data);
     })
@@ -197,8 +185,8 @@ $app
 
         $data = array();
 
-        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
-        $data['content'] = $shortfilmModel->getContentById($id);
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $data['content'] = $databaseModel->getContentById('shortfilm', $id);
 
         return $app['twig']->render('/pages/shortfilm.twig', $data);
     })
@@ -207,24 +195,15 @@ $app
 $app
     ->before(function() use ($app)
     {
-        // Get models
-        $cinemaModel = new \Site\Models\Cinema($app['db']);
-        $spectacleModel = new \Site\Models\Spectacle($app['db']);
-        $dubbingModel = new \Site\Models\Dubbing($app['db']);
-        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
-
-
-        // Get contents length for footer
-        $data = array();
-        $data['countFilms'] = $cinemaModel->countAll();
-        $data['countSpectacles'] = $spectacleModel->countAll();
-        $data['countDubbings'] = $dubbingModel->countAll();
-        $data['countShortfilms'] = $shortfilmModel->countAll();
-
-        $app['twig']-> addGlobal('countFilms', $data['countFilms']);
-        $app['twig']-> addGlobal('countSpectacles', $data['countSpectacles']);
-        $app['twig']-> addGlobal('countDubbings', $data['countDubbings']);
-        $app['twig']-> addGlobal('countShortfilms', $data['countShortfilms']);
+        $databaseModel = new \Site\Models\Database($app['db']);
+        $app['twig']
+            -> addGlobal( 'countFilms', $databaseModel->countAll("cinema") );
+        $app['twig']
+            -> addGlobal( 'countSpectacles', $databaseModel->countAll("onemanshow") );
+        $app['twig']
+            -> addGlobal( 'countDubbings', $databaseModel->countAll("dubbing") );
+        $app['twig']
+            -> addGlobal( 'countShortfilms', $databaseModel->countAll("shortfilm") );
     });
 
 // // Error
