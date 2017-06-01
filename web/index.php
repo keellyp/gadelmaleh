@@ -253,13 +253,11 @@ $app
         {
             $app->abort(404);
         }
-        else
-        {
-            $data = array();
 
-            $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
-            $data['content'] = $shortfilmModel->getContentById($id);
-        }
+        $data = array();
+
+        $shortfilmModel = new \Site\Models\Shortfilm($app['db']);
+        $data['content'] = $shortfilmModel->getContentById($id);
 
         return $app['twig']->render('/pages/shortfilm.twig', $data);
     })

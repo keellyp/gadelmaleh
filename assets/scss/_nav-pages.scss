@@ -10,7 +10,7 @@
     }
     .img-box
     {
-        justify-content: flex-start;
+
         &:after
         {
           content: "";
@@ -18,8 +18,7 @@
         }
         .poster
         {
-            width: calc(100% / 5 - 2%);
-            margin: 3% 1%;
+            margin: 0 2%;
 
             img
             {
