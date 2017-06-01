@@ -97,6 +97,8 @@ $app
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('cinema', $id);
 
+        $data['awards'] = $databaseModel->awards();
+
         return $app['twig']->render('/pages/film.twig', $data);
     })
     ->assert('id', '\d+')

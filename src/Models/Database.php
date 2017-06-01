@@ -127,4 +127,23 @@ class Database
 
         return $content;
     }
+    public function awards()
+    {
+        $query = $this->db->query
+        (
+            'SELECT * FROM award AS a INNER JOIN cinema AS c
+            ON c.name = a.film
+            UNION
+            SELECT * FROM award AS a INNER JOIN dubbing AS d
+            ON d.name = a.film
+            UNION
+            SELECT * FROM award AS a INNER JOIN onemanshow AS o
+            ON o.name = a.film
+            UNION
+            SELECT * FROM award AS a INNER JOIN shortfilm AS s
+            ON s.name = a.film'
+        );
+        $awards = $query->fetchAll();
+        return $awards;
+    }
 }
