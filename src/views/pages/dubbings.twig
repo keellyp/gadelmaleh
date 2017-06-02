@@ -16,7 +16,7 @@
                     </div>
                     <div class="img-box">
                         {% for _dubbing in dubbings %}
-                            <div class="image-container">
+                            <div class="image-container image-grid">
                                 <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
                                     <div class="image" style="background-image: url('{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png')"></div>
                                 </a>

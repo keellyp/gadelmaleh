@@ -9,23 +9,16 @@
         width: 80%;
         padding-top: 5em;
     }
-    .img-box
+    @media #{$tablet-portrait, $tablet-landscape}
     {
-
-        // &:after
-        // {
-        //   content: "";
-        //   flex: auto;
-        // }
-        .poster
+        .image-container:last-child { display: block;; }
+    }
+    @media #{$mobile}
+    {
+        .image-container:nth-child(3), .image-container:last-child
         {
-            margin: 0 2%;
-
-            img
-            {
-                width: 100%;
-                height: auto;
-            }
+            display: block;
         }
     }
+
 }

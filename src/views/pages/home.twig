@@ -36,7 +36,7 @@
             </div>
             <div class="img-box">
                 {% for _film in fewFilms %}
-                    <div class="image-container">
+                    <div class="image-container image-grid">
                         <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
                             <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png') "></div>
                         </a>
@@ -53,7 +53,7 @@
             </div>
             <div class="img-box">
                 {% for _spectacle in fewSpectacles %}
-                    <div class="image-container">
+                    <div class="image-container image-grid">
                         <a href="{{ url('spectacle', {name:_spectacle.slug}) }}" class="tag-a-block">
                             <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png')"></div>
                         </a>
@@ -70,7 +70,7 @@
             </div>
             <div class="img-box">
                 {% for _dubbing in fewDubbings %}
-                    <div class="image-container">
+                    <div class="image-container image-grid">
                         <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
                             <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png')"></div>
                         </a>
@@ -87,7 +87,7 @@
             </div>
             <div class="img-box">
                 {% for _shortFilm in fewShort %}
-                    <div class="image-container">
+                    <div class="image-container image-grid">
                         <a href="{{ url('shortfilm', {name:_shortFilm.slug}) }}" class="tag-a-block">
                             <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png')"></div>
                         </a>

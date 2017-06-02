@@ -16,9 +16,12 @@
                     </div>
                     <div class="img-box">
                         {% for _content in contents %}
-                        <div class="poster">
-                            <a href=" {{ url(_content.content, {name: _content.slug} ) }} "><img src="{{ global.request.basepath }}/dist/img{{_content.picture}}" alt="poster"></a>
-                        </div>
+                            <div class="image-container image-grid">
+                                <a href="{{ url(_content.content, {name: _content.slug} ) }}" class="tag-a-block">
+                                    <div class="image" style="background-image: url('{{ global.request.basepath }}/dist/img{{_content.picture}}')">
+                                    </div>
+                                </a>
+                            </div>
                         {% endfor %}
                     </div>
                     {% if error %}

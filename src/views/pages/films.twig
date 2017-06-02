@@ -16,9 +16,9 @@
                     </div>
                     <div class="img-box">
                         {% for _film in films %}
-                            <div class="image-container">
+                            <div class="image-container image-grid">
                                 <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
-                                    <div class="image" ('{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png') "></div>
+                                    <div class="image" style="background-image: url(' {{global.request.basepath}}/dist/img/cinema/{{_film.id}}.png ')"></div>
                                 </a>
                             </div>
                         {% endfor %}

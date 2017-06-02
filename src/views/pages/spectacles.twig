@@ -16,7 +16,7 @@
                     </div>
                     <div class="img-box">
                         {% for _spectacle in spectacles %}
-                            <div class="image-container">
+                            <div class="image-container image-grid">
                                 <a href="{{ url('spectacle', {name:_spectacle.slug}) }}" class="tag-a-block">
                                     <div class="image" style=" background-image: url(' {{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png ') "></div>
                                 </a>
