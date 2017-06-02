@@ -11,15 +11,7 @@ switch($_SERVER['HTTP_HOST'])
         $config['db_user'] = 'root';
         $config['db_pass'] = 'root';
         break;
-
-    case 'kellyphan.fr/gadelmaleh':
-        $config['debug'] = false;
-        $config['db_host'] = '';
-        $config['db_name'] = '';
-        $config['db_user'] = '';
-        $config['db_pass'] = '';
-        break;
-
+        
     case 'monsite.com':
         $config['debug'] = false;
         $config['db_host'] = '';

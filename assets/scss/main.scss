@@ -4,13 +4,14 @@
 a
 {
     text-decoration: none;
+    display: block;
 }
 ::selection
 {
     background-color: $main-color;
     color: white;
-
 }
+
 body
 {
     background-color: $bg-color;

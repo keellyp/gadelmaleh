@@ -8,7 +8,8 @@ $bg-color : #FFFFFF; // white
 $section-color : #F1F1F1; // lighter grey
 
 // MEDIA QUERIES
-$mobile: "(max-width: 767px)";
-$tablet: "(min-width: 768px) and (max-width: 1024px)";
-$desktop: "(min-width: 1025px) and (max-width: 1780px)";
-$large: "(min-width: 1780px)";
+$mobile: "(max-width: 599px)";
+$tablet-portrait: "(min-width: 600px)";
+$tablet-landscape: "(min-width: 900px)";
+$desktop: "(min-width: 1200px)";
+$large: "(min-width: 1800px)";
