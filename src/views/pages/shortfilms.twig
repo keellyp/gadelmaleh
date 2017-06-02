@@ -16,9 +16,11 @@
                     </div>
                     <div class="img-box">
                         {% for _shortfilm in shortfilms %}
-                        <div class="poster">
-                            <a href="{{ url('shortfilm', {name:_shortfilm.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortfilm.id}}.png" alt="poster"></a>
-                        </div>
+                            <div class="image-container">
+                                <a href="{{ url('shortfilm', {name:_shortfilm.slug}) }}" class="tag-a-block">
+                                    <div class="image" style="background-image: url(' {{ global.request.basepath }}/dist/img/shortfilm/{{_shortfilm.id}}.png ')"></div>
+                                </a>
+                            </div>
                         {% endfor %}
                     </div>
                 </article>

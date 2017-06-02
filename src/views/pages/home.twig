@@ -36,11 +36,11 @@
             </div>
             <div class="img-box">
                 {% for _film in fewFilms %}
-                <div class="poster">
-                    <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
-                        <img src="{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png" alt="poster">
-                    </a>
-                </div>
+                    <div class="image-container">
+                        <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
+                            <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png') "></div>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
         </article>
@@ -53,11 +53,11 @@
             </div>
             <div class="img-box">
                 {% for _spectacle in fewSpectacles %}
-                <div class="poster">
-                    <a href="{{ url('spectacle', {name:_spectacle.slug}) }}" class="tag-a-block">
-                        <img src="{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png" alt="poster">
-                    </a>
-                </div>
+                    <div class="image-container">
+                        <a href="{{ url('spectacle', {name:_spectacle.slug}) }}" class="tag-a-block">
+                            <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png')"></div>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
         </article>
@@ -70,11 +70,11 @@
             </div>
             <div class="img-box">
                 {% for _dubbing in fewDubbings %}
-                <div class="poster">
-                    <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
-                        <img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster">
-                    </a>
-                </div>
+                    <div class="image-container">
+                        <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
+                            <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png')"></div>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
         </article>
@@ -87,11 +87,11 @@
             </div>
             <div class="img-box">
                 {% for _shortFilm in fewShort %}
-                <div class="poster">
-                    <a href="{{ url('shortfilm', {name:_shortFilm.slug}) }}" class="tag-a-block">
-                        <img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png" alt="poster">
-                    </a>
-                </div>
+                    <div class="image-container">
+                        <a href="{{ url('shortfilm', {name:_shortFilm.slug}) }}" class="tag-a-block">
+                            <div class="image" style=" background-image: url('{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png')"></div>
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
         </article>

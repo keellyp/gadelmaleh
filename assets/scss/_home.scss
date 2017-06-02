@@ -14,6 +14,7 @@
         background-image: url(../img/gad_bg.png);
         background-size: cover;
         background-position: 50% 0;
+
         @media #{$mobile, $tablet-portrait} { display: none; }
         @media #{$tablet-landscape} { display: block; }
     }
@@ -53,6 +54,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 width: 50%;
+                
                 @media #{$mobile} { width: 50%; }
                 @media #{$tablet-portrait} { width: 35%; }
 
@@ -61,6 +63,7 @@
                     color: $second-color;
                     font-style: italic;
                     font-size: 10px;
+
                     @media #{$large} { font-size: 22px; }
                 }
             }
@@ -90,6 +93,7 @@
                     color: $main-color;
                     display: flex;
                     align-items: center;
+
                     @media #{$large} { height: 45px; }
                 }
 
@@ -110,6 +114,7 @@
                     color: white;
                     border-radius: 15px;
                     margin: 0 20px;
+
                     @media #{$large} { height: 45px; }
                 }
             }

@@ -2,6 +2,7 @@ var burgerIcon = document.querySelector('.burger-icon');
 var burgerQuit = document.querySelector('.burger-quit');
 var burgerMenu = document.querySelector('.burger-menu');
 var isShow = false;
+
 burgerIcon.addEventListener('click', function()
 {
     if (isShow == false)

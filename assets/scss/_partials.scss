@@ -20,6 +20,7 @@ header
         .logo
         {
             width: 10rem;
+
             @media #{$large} { width: 14rem; }
         }
 
@@ -28,6 +29,7 @@ header
             display: flex;
             justify-content: space-between;
             width: 35%;
+
             @media #{$mobile} { display: none; }
             @media #{$tablet-portrait} { display: none; }
             @media #{$tablet-landscape}
@@ -44,6 +46,7 @@ header
             display: flex;
             align-items: center;
             display: none;
+
             @media #{$mobile} { display: flex; }
             @media #{$tablet-portrait} { display: flex; }
             @media #{$tablet-landscape} { display: none; }
@@ -52,10 +55,7 @@ header
             {
                 cursor: pointer;
 
-                .bars, .bars::before, .bars::after
-                {
-                    background-color: $main-color;
-                }
+                .bars, .bars::before, .bars::after { background-color: $main-color; }
                 .bars::before, .bars::after
                 {
                     transform: scaleX(1);
@@ -99,6 +99,7 @@ header
 {
     font-weight: 900;
     font-size: 14px;
+    
     @media #{$mobile} { font-size: 16px; }
     @media #{$large} { font-size: 22px; }
     a

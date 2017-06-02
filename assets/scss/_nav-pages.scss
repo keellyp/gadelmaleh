@@ -12,11 +12,11 @@
     .img-box
     {
 
-        &:after
-        {
-          content: "";
-          flex: auto;
-        }
+        // &:after
+        // {
+        //   content: "";
+        //   flex: auto;
+        // }
         .poster
         {
             margin: 0 2%;
@@ -26,20 +26,6 @@
                 width: 100%;
                 height: auto;
             }
-        }
-
-    }
-    // 
-    //
-    // @media #{$tablet}
-    // {
-    //     .poster:last-child { display: block; }
-    // }
-    @media #{$mobile}
-    {
-        .poster:nth-child(3), .poster:last-child
-        {
-            display: block;
         }
     }
 }

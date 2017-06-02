@@ -16,9 +16,11 @@
                     </div>
                     <div class="img-box">
                         {% for _film in films %}
-                        <div class="poster">
-                            <a href="{{ url('film', {name:_film.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png" alt="poster"></a>
-                        </div>
+                            <div class="image-container">
+                                <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
+                                    <div class="image" ('{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png') "></div>
+                                </a>
+                            </div>
                         {% endfor %}
                     </div>
                 </article>

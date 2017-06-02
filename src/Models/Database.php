@@ -11,6 +11,7 @@ class Database
         $this->db = $db;
     }
 
+    //Get all result from each table order by date
     public function getAll($table)
     {
         switch ($table)
@@ -35,6 +36,7 @@ class Database
 
     }
 
+    //Count all items from each table
     public function countAll($table)
     {
         switch ($table)
@@ -59,6 +61,7 @@ class Database
         return $countAll;
     }
 
+    //Get only 4 results from each table order by date
     public function getFew($table)
     {
         switch ($table)
@@ -83,6 +86,7 @@ class Database
         return $fewContent;
     }
 
+    //Get one result by slug
     public function getContentById($table, $name)
     {
         switch ($table)
@@ -109,6 +113,7 @@ class Database
         return $fewContent;
     }
 
+    //Get all result order by date
     public function getByDate($date)
     {
         $prepare = $this->db->prepare
@@ -127,6 +132,8 @@ class Database
 
         return $content;
     }
+
+    //Get infos from awards
     public function awards()
     {
         $query = $this->db->query

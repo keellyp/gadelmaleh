@@ -16,9 +16,11 @@
                     </div>
                     <div class="img-box">
                         {% for _dubbing in dubbings %}
-                        <div class="poster">
-                            <a href="{{ url('dubbing', {name:_dubbing.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster"></a>
-                        </div>
+                            <div class="image-container">
+                                <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
+                                    <div class="image" style="background-image: url('{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png')"></div>
+                                </a>
+                            </div>
                         {% endfor %}
                     </div>
                 </article>
