@@ -1,46 +1,43 @@
 # GAD ELMALEH
 A website that archive every contents of the french artist, Gad Elmaleh.
 
-
 ## Prerequisites
-You need to install [Node.js](https://nodejs.org/en/)
-
+* Install [Node.js](https://nodejs.org/en/)
+* Install Composer on root folder by using :
+```
+composer install
+```
 
 ### Install
-Download the repository then go to the folder builder in your terminal.
-
+* Install composer dependencies with
 ```
-cd .../PHP-template/builder
+composer install
 ```
-
-Once you are in there, you have to install node-modules
-
+* Update web/.htaccess RewriteBase line if needed
+* Go into builder folder and install node-modules with
 ```
 npm install
 ```
 *You may need to install with sudo if you are a macOS user*
-
-
-
-## Compatibily
-* Gulp.js
-* PHP 7.1.0
-* Javascript
-* HTML5 / CSS3
+* Update web/helpers/config.php switch cases if needed
 
 
 ## Features
-* Sourcemaps
-* Watchers
-* Notifications
+* Silex 2
+* Twig
+* Routes
+* Use Models for SQL request
+* Gulp
+* Responsive website
+* Handle error and 404 page
 
 
 ### Tasks
-* "style" allows to compile the SASS into CSS, autoprefix it, minified and replace into the dist folder.
-* "javascript" concatenates all the javascript files into one, minified it and replace into the dist folder
-* "images" minifies all the images and place it on dist folder.
-* "fonts" moves all the fonts into dist folder
-* "watch" watches the changes in your files
+* You can discover every works, arranged by release date, of the artist.
+* Learn more informations when you click on the work. If the artist won an awards, it tells you so.
+* If you choose a date, it shows you what he published during this year.
+* The footer is dynamic, it count the length of each table.
+* The model use switch case to get easier if I would like to add an other table on my database.
 
 
 ## Author
