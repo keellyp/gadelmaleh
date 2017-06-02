@@ -9,7 +9,7 @@ $section-color : #F1F1F1; // lighter grey
 
 // MEDIA QUERIES
 $mobile: "(max-width: 599px)";
-$tablet-portrait: "(min-width: 600px)";
-$tablet-landscape: "(min-width: 900px)";
-$desktop: "(min-width: 1200px)";
+$tablet-portrait: "(min-width: 600px) and (max-width: 899px)";
+$tablet-landscape: "(min-width: 900px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px) and (max-width: 1799)";
 $large: "(min-width: 1800px)";

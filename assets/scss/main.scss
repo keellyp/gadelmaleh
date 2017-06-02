@@ -1,11 +1,13 @@
 @import "components/_reset.scss";
 @import "components/_variables.scss";
 
-a
+.tag-a-block
 {
-    text-decoration: none;
     display: block;
+    line-height: 0;
+    font-size: 0;
 }
+
 ::selection
 {
     background-color: $main-color;

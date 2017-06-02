@@ -1,19 +1,24 @@
 .content-informations
 {
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media #{$mobile} { height: 85vh;}
 
     section
     {
         display: flex;
         flex-direction: row;
 
+        @media #{$mobile} { flex-direction: column;}
+
         .informations-img
         {
             width: 50%;
+            @media #{$mobile} { width: 100%;}
 
             .img-box
             {

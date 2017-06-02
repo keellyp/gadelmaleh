@@ -14,6 +14,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                align-items: baseline;
                 padding: 3em 0;
 
                 h3
@@ -23,11 +24,13 @@
                     font-size: 24px;
 
                     @media #{$mobile} { font-size: 14px; }
+                    @media #{$large} { font-size: 44px; }
                 }
                 p
                 {
                     color: $second-color;
                     font-size: 10px;
+                    @media #{$large} { font-size: 22px; }
 
                     &:hover
                     {
@@ -49,10 +52,10 @@
                     // height: 500px;
                     width: calc(100%/4 - 4%);
                     text-align: center;
-                    // @media #{$tablet}
-                    // {
-                    //     width: calc(100%/3 - 4%);
-                    // }
+                    @media #{$tablet-portrait}
+                    {
+                        width: calc(100%/3 - 4%);
+                    }
                     @media #{$mobile}
                     {
                         width: calc(100%/2 - 4%);
@@ -71,11 +74,11 @@
         }
     }
 }
-// 
-// @media #{$tablet}
-// {
-//     .poster:last-child { display: none; }
-// }
+
+@media #{$tablet-portrait}
+{
+    .poster:last-child { display: none; }
+}
 @media #{$mobile}
 {
     .poster:nth-child(3), .poster:last-child

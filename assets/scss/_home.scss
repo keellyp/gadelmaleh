@@ -15,6 +15,7 @@
         background-size: cover;
         background-position: 50% 0;
         @media #{$mobile, $tablet-portrait} { display: none; }
+        @media #{$tablet-landscape} { display: block; }
     }
 
     .header-right
@@ -23,6 +24,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+
         @media #{$mobile, $tablet-portrait}
         {
             width: 100%;
@@ -44,14 +46,6 @@
                 width: 95%;
                 height: 70%;
             }
-            // .right-logo
-            // {
-            //     // @media #{$tablet}
-            //     // {
-            //     //     width: 70%;
-            //     //     margin: 0 auto;
-            //     // }
-            // }
 
             .right-adj
             {
@@ -59,7 +53,8 @@
                 flex-direction: row;
                 justify-content: space-between;
                 width: 50%;
-                @media #{$mobile, $tablet-portrait} { width: 50%; }
+                @media #{$mobile} { width: 50%; }
+                @media #{$tablet-portrait} { width: 35%; }
 
                 div
                 {
@@ -95,6 +90,7 @@
                     color: $main-color;
                     display: flex;
                     align-items: center;
+                    @media #{$large} { height: 45px; }
                 }
 
                 .select-style select
@@ -114,7 +110,7 @@
                     color: white;
                     border-radius: 15px;
                     margin: 0 20px;
-
+                    @media #{$large} { height: 45px; }
                 }
             }
 

@@ -6,7 +6,7 @@
         <div class="right-container">
             <div class="right-logo">
                 <h1>
-                    <a href=" {{ url('home') }} ">
+                    <a href=" {{ url('home') }} " class="tag-a-block">
                         <img src="{{ global.request.basepath }}/dist/img/logo.png" alt="logo gad elmaleh">
                     </a>
                 </h1>
@@ -37,7 +37,7 @@
             <div class="img-box">
                 {% for _film in fewFilms %}
                 <div class="poster">
-                    <a href="{{ url('film', {name:_film.slug}) }}">
+                    <a href="{{ url('film', {name:_film.slug}) }}" class="tag-a-block">
                         <img src="{{ global.request.basepath }}/dist/img/cinema/{{_film.id}}.png" alt="poster">
                     </a>
                 </div>
@@ -54,7 +54,9 @@
             <div class="img-box">
                 {% for _spectacle in fewSpectacles %}
                 <div class="poster">
-                    <a href="{{ url('spectacle', {name:_spectacle.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png" alt="poster"></a>
+                    <a href="{{ url('spectacle', {name:_spectacle.slug}) }}" class="tag-a-block">
+                        <img src="{{ global.request.basepath }}/dist/img/onemanshow/{{_spectacle.id}}.png" alt="poster">
+                    </a>
                 </div>
                 {% endfor %}
             </div>
@@ -69,7 +71,9 @@
             <div class="img-box">
                 {% for _dubbing in fewDubbings %}
                 <div class="poster">
-                    <a href="{{ url('dubbing', {name:_dubbing.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster"></a>
+                    <a href="{{ url('dubbing', {name:_dubbing.slug}) }}" class="tag-a-block">
+                        <img src="{{ global.request.basepath }}/dist/img/dubbing/{{_dubbing.id}}.png" alt="poster">
+                    </a>
                 </div>
                 {% endfor %}
             </div>
@@ -84,7 +88,9 @@
             <div class="img-box">
                 {% for _shortFilm in fewShort %}
                 <div class="poster">
-                    <a href="{{ url('shortfilm', {name:_shortFilm.slug}) }}"><img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png" alt="poster"></a>
+                    <a href="{{ url('shortfilm', {name:_shortFilm.slug}) }}" class="tag-a-block">
+                        <img src="{{ global.request.basepath }}/dist/img/shortfilm/{{_shortFilm.id}}.png" alt="poster">
+                    </a>
                 </div>
                 {% endfor %}
             </div>

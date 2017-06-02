@@ -20,12 +20,7 @@ header
         .logo
         {
             width: 10rem;
-
-            a
-            {
-                line-height: 0;
-                font-size: 0;
-            }
+            @media #{$large} { width: 14rem; }
         }
 
         ul
@@ -38,8 +33,9 @@ header
             @media #{$tablet-landscape}
             {
                 display: flex;
-                width: 40%;
+                width: 45%;
             }
+            @media #{$large} { width: 40%; }
         }
         .bars-container
         {
@@ -49,7 +45,7 @@ header
             align-items: center;
             display: none;
             @media #{$mobile} { display: flex; }
-            @media #{$tablet-portrait} { display: block; }
+            @media #{$tablet-portrait} { display: flex; }
             @media #{$tablet-landscape} { display: none; }
 
             &:hover
@@ -102,9 +98,9 @@ header
 .nav-link
 {
     font-weight: 900;
-    font-size: 12px;
+    font-size: 14px;
     @media #{$mobile} { font-size: 16px; }
-    // @media #{$large} { font-size: 20px; }
+    @media #{$large} { font-size: 22px; }
     a
     {
         position: relative;
@@ -236,9 +232,11 @@ footer
                 font-weight: 600;
                 padding: 10px 0;
 
-                @media #{$mobile}
+                @media #{$mobile} { font-size: 34px; }
+                @media #{$large}
                 {
-                    font-size: 34px;
+                    font-size: 82px;
+                    line-height: normal;
                 }
             }
             li:last-child
@@ -247,6 +245,7 @@ footer
                 font-weight: 100;
 
                 @media #{$mobile} { font-size: 10px; }
+                @media #{$large} { font-size: 28px; }
             }
         }
     }
