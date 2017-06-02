@@ -97,9 +97,14 @@ $app
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('cinema', $name);
         $data['awards'] = $databaseModel->awards();
+        if(!$data['content'])
+        {
+            $app->abort(404);
+        }
 
         return $app['twig']->render('/pages/film.twig', $data);
     })
+    ->assert('name', "([\w+-]+)|([\w+-]+-\d+)")
     ->bind('film');
 
 // Create route for spectacles
@@ -117,9 +122,13 @@ $app
     {
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('onemanshow', $name);
-
+        if(!$data['content'])
+        {
+            $app->abort(404);
+        }
         return $app['twig']->render('/pages/spectacle.twig', $data);
     })
+    ->assert('name', "([\w+-]+)|([\w+-]+-\d+)")
     ->bind('spectacle');
 
 
@@ -138,9 +147,13 @@ $app
     {
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('dubbing', $name);
-
+        if(!$data['content'])
+        {
+            $app->abort(404);
+        }
         return $app['twig']->render('/pages/dubbing.twig', $data);
     })
+    ->assert('name', "([\w+-]+)|([\w+-]+-\d+)")
     ->bind('dubbing');
 
 
@@ -159,9 +172,13 @@ $app
     {
         $databaseModel = new \Site\Models\Database($app['db']);
         $data['content'] = $databaseModel->getContentById('shortfilm', $name);
-
+        if(!$data['content'])
+        {
+            $app->abort(404);
+        }
         return $app['twig']->render('/pages/shortfilm.twig', $data);
     })
+    ->assert('name', "([\w+-]+)|([\w+-]+-\d+)")
     ->bind('shortfilm');
 $app
     ->before(function() use ($app)
@@ -181,7 +198,8 @@ $app
 $app
     ->error(function() use ($app)
     {
-        $data = array();
+        $data['title'] = 'Error';
+        $data['code'] = $code;
         $data['error'] = true;
         return $app['twig']->render('pages/error.twig', $data);
     });
