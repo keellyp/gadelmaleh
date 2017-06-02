@@ -3,10 +3,7 @@ A website that archive every contents of the french artist, Gad Elmaleh.
 
 ## Prerequisites
 * Install [Node.js](https://nodejs.org/en/)
-* Install Composer on root folder by using :
-```
-composer install
-```
+* Install [Composer](https://getcomposer.org/)
 
 ### Install
 * Install composer dependencies with
