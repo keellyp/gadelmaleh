@@ -15,7 +15,7 @@ header
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items:flex-end;
+        align-items: center;
 
         .logo
         {
@@ -32,41 +32,13 @@ header
         {
             display: flex;
             justify-content: space-between;
-            width: 40%;
-
+            width: 35%;
             @media #{$mobile} { display: none; }
-
-            li
+            @media #{$tablet-portrait} { display: none; }
+            @media #{$tablet-landscape}
             {
-                font-weight: 900;
-                font-size: 12px;
-                position: relative;
-                @media #{$mobile} { font-size: 10px; }
-                @media #{$large} { font-size: 20px; }
-
-                &::after
-                {
-                    content: '';
-                    position: absolute;
-                    bottom: 5px;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    background-color: $main-color;
-                    transform: scaleX(0);
-                }
-
-                &:hover
-                {
-                    color: $main-color;
-
-                    &::after
-                    {
-                        transform: scaleX(1);
-                        transform-origin: top left;
-                        transition: transform linear 0.2s;
-                    }
-                }
+                display: flex;
+                width: 40%;
             }
         }
         .bars-container
@@ -76,7 +48,9 @@ header
             display: flex;
             align-items: center;
             display: none;
-            @media #{$mobile} { display: block; }
+            @media #{$mobile} { display: flex; }
+            @media #{$tablet-portrait} { display: block; }
+            @media #{$tablet-landscape} { display: none; }
 
             &:hover
             {
@@ -125,6 +99,119 @@ header
         }
     }
 }
+.nav-link
+{
+    font-weight: 900;
+    font-size: 12px;
+    @media #{$mobile} { font-size: 16px; }
+    // @media #{$large} { font-size: 20px; }
+    a
+    {
+        position: relative;
+        display: inline;
+
+        &::after
+        {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: $main-color;
+            transform: scaleX(0);
+        }
+        &:hover
+        {
+            color: $main-color;
+
+            &::after
+            {
+                transform: scaleX(1);
+                transform-origin: top left;
+                transition: transform linear 0.2s;
+            }
+        }
+    }
+}
+.burger-menu
+{
+    width: 100%;
+    height: 50vh;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $third-color;
+    opacity: 0.98;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transform: translateY(-100%);
+    transition: transform ease-in 0.3s;
+
+    &.animation-burger-menu
+    {
+        transform: translateY(0%);
+        transition: transform ease-in 0.3s;
+    }
+
+    .bars-container
+    {
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+
+        &:hover .bars
+        {
+            transform: rotate(45deg);
+            transition: transform ease-in 0.2s;
+        }
+        &:hover .bars::after
+        {
+            transform: rotate(90deg);
+            bottom: 0;
+        }
+
+        .bars, .bars::after
+        {
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            background-color: white;
+            position: relative;
+            transform-origin: center;
+        }
+        .bars
+        {
+            transform: rotate(90deg);
+        }
+        .bars::after
+        {
+            content: "";
+            position: absolute;
+            left: 0%;
+            bottom: 300%;
+        }
+    }
+    nav
+    {
+        width : 80%;
+        height : 80%;
+
+        ul
+        {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+}
+
 footer
 {
     width: 100%;
