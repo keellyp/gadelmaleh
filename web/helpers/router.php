@@ -45,7 +45,6 @@ $app
                 )
             ))
             ->add('submit', SubmitType::class);
-
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
 
@@ -54,7 +53,6 @@ $app
             $form_data = $form->getData();
             return $app->redirect('date/'.$form_data['year']);
         }
-
         $data['year_form'] = $form->createView();
 
         return $app['twig']->render('/pages/home.twig', $data);

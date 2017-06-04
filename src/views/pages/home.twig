@@ -19,9 +19,7 @@
             <h3>Alors que Gad Elmaleh est sans doute le comédien le plus connu et le plus aimé d'Europe, il s'est engagé dans le tout dernier chapitre de sa carrière: se transmettre au public américain.</h3>
 
             {{ form_start(year_form, {'attr' : { 'class': 'form-year' } }) }}
-            <div class="select-style">
-                {{ form_widget(year_form.year) }}
-            </div>
+            <div class="select-style"> {{ form_widget(year_form.year) }} </div>
             {{ form_widget(year_form.submit, { 'label': 'Envoyer' }) }}
             {{ form_end(year_form) }}
         </div>
